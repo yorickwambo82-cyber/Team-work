@@ -1,31 +1,33 @@
 import { useState, useEffect } from 'react';
 import { athletes, sports, users } from '../utils/helpers';
 import { useLanguage } from '../context/LanguageContext';
+import AthletesBySportChart from '../components/Charts/AthletesBySportChart';
+import AthletesByGenderChart from '../components/Charts/AthletesByGenderChart';
 
 const Dashboard = () => {
     const { t } = useLanguage();
-    const [athleteCount, setAthleteCount] = useState(athletes.length);
-    const [sportCount, setSportCount] = useState(sports.length);
+    const [athletesData, setAthletesData] = useState(athletes);
+    const [sportsData, setSportsData] = useState(sports);
 
     useEffect(() => {
         const savedAthletes = localStorage.getItem('sdb_athletes');
         if (savedAthletes) {
             try {
-                setAthleteCount(JSON.parse(savedAthletes).length);
+                setAthletesData(JSON.parse(savedAthletes));
             } catch (e) { console.error("Error parsing saved athletes", e); }
         }
 
         const savedSports = localStorage.getItem('sdb_sports');
         if (savedSports) {
             try {
-                setSportCount(JSON.parse(savedSports).length);
+                setSportsData(JSON.parse(savedSports));
             } catch (e) { console.error("Error parsing saved sports", e); }
         }
     }, []);
 
     const stats = [
-        { label: t('dashboard.totalAthletes'), value: athleteCount, icon: 'bx-user', color: 'primary' },
-        { label: t('dashboard.totalSports'), value: sportCount, icon: 'bx-football', color: 'success' },
+        { label: t('dashboard.totalAthletes'), value: athletesData.length, icon: 'bx-user', color: 'primary' },
+        { label: t('dashboard.totalSports'), value: sportsData.length, icon: 'bx-football', color: 'success' },
         { label: t('dashboard.totalUsers'), value: users.length, icon: 'bx-group', color: 'info' },
     ];
 
@@ -35,26 +37,12 @@ const Dashboard = () => {
                 <div className="col-lg-12 mb-4 order-0">
                     <div className="card">
                         <div className="d-flex align-items-end row">
-                            <div className="col-sm-7">
+                            <div className="col-sm-12">
                                 <div className="card-body">
                                     <h5 className="card-title text-primary">{t('dashboard.welcome')}</h5>
-                                    <p className="mb-4">
-                                        You have done <span className="fw-bold">72%</span> more sales today. Check your new badge in
-                                        your profile.
+                                    <p className="mb-0">
+                                        Welcome to the ISTAG Sports Management System. Here you can manage athletes, sports, and academic information.
                                     </p>
-
-                                    <a href="javascript:;" className="btn btn-sm btn-outline-primary">View Badges</a>
-                                </div>
-                            </div>
-                            <div className="col-sm-5 text-center text-sm-left">
-                                <div className="card-body pb-0 px-0 px-md-4">
-                                    <img
-                                        src="/assets/img/illustrations/man-with-laptop-light.png"
-                                        height="140"
-                                        alt="View Badge User"
-                                        data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                                        data-app-light-img="illustrations/man-with-laptop-light.png"
-                                    />
                                 </div>
                             </div>
                         </div>
@@ -95,6 +83,18 @@ const Dashboard = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <div className="row">
+                {/* Athletes by Sport Chart */}
+                <div className="col-md-6 col-lg-6 mb-4">
+                    <AthletesBySportChart athletes={athletesData} sports={sportsData} />
+                </div>
+
+                {/* Gender Distribution Chart */}
+                <div className="col-md-6 col-lg-6 mb-4">
+                    <AthletesByGenderChart athletes={athletesData} />
+                </div>
             </div>
         </div>
     );
