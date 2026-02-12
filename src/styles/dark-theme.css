@@ -1,0 +1,122 @@
+/* Dark Theme Overrides */
+
+html.dark-style body {
+    background-color: #232333;
+    color: #a3a4cc;
+}
+
+html.dark-style .bg-menu-theme {
+    background-color: #2b2c40 !important;
+    color: #a3a4cc;
+}
+
+html.dark-style .bg-menu-theme .menu-link,
+html.dark-style .bg-menu-theme .menu-horizontal-prev,
+html.dark-style .bg-menu-theme .menu-horizontal-next {
+    color: #a3a4cc;
+}
+
+html.dark-style .bg-menu-theme .menu-item.active>.menu-link {
+    color: #fff;
+    background-color: #696cff !important;
+}
+
+html.dark-style .bg-navbar-theme {
+    background-color: #2b2c40 !important;
+    color: #a3a4cc;
+}
+
+html.dark-style .layout-navbar-fixed .layout-page:before {
+    background: rgba(35, 35, 51, 0.6);
+}
+
+html.dark-style .card {
+    background-color: #2b2c40;
+    color: #a3a4cc;
+    box-shadow: 0 0.25rem 1.125rem rgba(0, 0, 0, 0.1);
+}
+
+html.dark-style .text-body {
+    color: #a3a4cc !important;
+}
+
+html.dark-style h1,
+html.dark-style h2,
+html.dark-style h3,
+html.dark-style h4,
+html.dark-style h5,
+html.dark-style h6,
+html.dark-style .h1,
+html.dark-style .h2,
+html.dark-style .h3,
+html.dark-style .h4,
+html.dark-style .h5,
+html.dark-style .h6 {
+    color: #dbdbeb;
+}
+
+html.dark-style .text-muted {
+    color: #7e7f96 !important;
+}
+
+html.dark-style .form-control,
+html.dark-style .form-select {
+    background-color: #323349;
+    border-color: #444564;
+    color: #cbcbe2;
+}
+
+html.dark-style .form-control:focus,
+html.dark-style .form-select:focus {
+    border-color: #696cff;
+    background-color: #323349;
+    color: #cbcbe2;
+}
+
+html.dark-style .input-group-text {
+    background-color: #323349;
+    border-color: #444564;
+    color: #cbcbe2;
+}
+
+html.dark-style .table {
+    color: #a3a4cc;
+    border-color: #444564;
+}
+
+html.dark-style .table-hover>tbody>tr:hover {
+    color: #a3a4cc;
+    --bs-table-accent-bg: rgba(255, 255, 255, 0.05);
+}
+
+html.dark-style .dropdown-menu {
+    background-color: #2b2c40;
+    border-color: #444564;
+}
+
+html.dark-style .dropdown-item {
+    color: #a3a4cc;
+}
+
+html.dark-style .dropdown-item:hover,
+html.dark-style .dropdown-item:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #dbdbeb;
+}
+
+html.dark-style .dropdown-divider {
+    border-top-color: #444564;
+}
+
+html.dark-style .footer {
+    background-color: #232333 !important;
+}
+
+html.dark-style .content-backdrop {
+    background-color: #232333;
+}
+
+/* Adjustments for specific elements */
+html.dark-style .app-brand-text {
+    color: #dbdbeb;
+}

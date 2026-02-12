@@ -1,0 +1,27 @@
+/* Dashboard Layout specific styles */
+/* We keep the layout wrapper styles to ensure React root behaves correctly */
+
+.layout-wrapper,
+.layout-container {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.layout-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Navbar overrides if needed */
+.layout-navbar {
+    z-index: 100;
+}
